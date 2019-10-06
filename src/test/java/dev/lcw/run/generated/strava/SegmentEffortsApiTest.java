@@ -11,12 +11,12 @@
  */
 
 
-package dev.lcw.run.generated.strava.api;
+package dev.lcw.run.generated.strava;
 
 import dev.lcw.run.generated.strava.ApiException;
+import dev.lcw.run.generated.strava.api.SegmentEffortsApi;
+import dev.lcw.run.generated.strava.model.DetailedSegmentEffort;
 import dev.lcw.run.generated.strava.model.Fault;
-import java.io.File;
-import dev.lcw.run.generated.strava.model.Upload;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -26,48 +26,44 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for UploadsApi
+ * API tests for SegmentEffortsApi
  */
 @Ignore
-public class UploadsApiTest {
+public class SegmentEffortsApiTest {
 
-    private final UploadsApi api = new UploadsApi();
+    private final SegmentEffortsApi api = new SegmentEffortsApi();
 
     
     /**
-     * Upload Activity
+     * List Segment Efforts
      *
-     * Uploads a new data file to create an activity from. Requires activity:write scope.
+     * Returns a set of the authenticated athlete&#39;s segment efforts for a given segment.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void createUploadTest() throws ApiException {
-        File file = null;
-        String name = null;
-        String description = null;
-        String trainer = null;
-        String commute = null;
-        String dataType = null;
-        String externalId = null;
-        Upload response = api.createUpload(file, name, description, trainer, commute, dataType, externalId);
+    public void getEffortsBySegmentIdTest() throws ApiException {
+        Integer id = null;
+        Integer page = null;
+        Integer perPage = null;
+        List<DetailedSegmentEffort> response = api.getEffortsBySegmentId(id, page, perPage);
 
         // TODO: test validations
     }
     
     /**
-     * Get Upload
+     * Get Segment Effort
      *
-     * Returns an upload for a given identifier. Requires activity:write scope.
+     * Returns a segment effort from an activity that is owned by the authenticated athlete.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getUploadByIdTest() throws ApiException {
-        Long uploadId = null;
-        Upload response = api.getUploadById(uploadId);
+    public void getSegmentEffortByIdTest() throws ApiException {
+        Long id = null;
+        DetailedSegmentEffort response = api.getSegmentEffortById(id);
 
         // TODO: test validations
     }

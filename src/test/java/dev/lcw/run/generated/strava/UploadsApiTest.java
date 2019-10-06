@@ -11,11 +11,13 @@
  */
 
 
-package dev.lcw.run.generated.strava.api;
+package dev.lcw.run.generated.strava;
 
 import dev.lcw.run.generated.strava.ApiException;
-import dev.lcw.run.generated.strava.model.DetailedSegmentEffort;
+import dev.lcw.run.generated.strava.api.UploadsApi;
 import dev.lcw.run.generated.strava.model.Fault;
+import java.io.File;
+import dev.lcw.run.generated.strava.model.Upload;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -25,44 +27,48 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for SegmentEffortsApi
+ * API tests for UploadsApi
  */
 @Ignore
-public class SegmentEffortsApiTest {
+public class UploadsApiTest {
 
-    private final SegmentEffortsApi api = new SegmentEffortsApi();
+    private final UploadsApi api = new UploadsApi();
 
     
     /**
-     * List Segment Efforts
+     * Upload Activity
      *
-     * Returns a set of the authenticated athlete&#39;s segment efforts for a given segment.
+     * Uploads a new data file to create an activity from. Requires activity:write scope.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getEffortsBySegmentIdTest() throws ApiException {
-        Integer id = null;
-        Integer page = null;
-        Integer perPage = null;
-        List<DetailedSegmentEffort> response = api.getEffortsBySegmentId(id, page, perPage);
+    public void createUploadTest() throws ApiException {
+        File file = null;
+        String name = null;
+        String description = null;
+        String trainer = null;
+        String commute = null;
+        String dataType = null;
+        String externalId = null;
+        Upload response = api.createUpload(file, name, description, trainer, commute, dataType, externalId);
 
         // TODO: test validations
     }
     
     /**
-     * Get Segment Effort
+     * Get Upload
      *
-     * Returns a segment effort from an activity that is owned by the authenticated athlete.
+     * Returns an upload for a given identifier. Requires activity:write scope.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getSegmentEffortByIdTest() throws ApiException {
-        Long id = null;
-        DetailedSegmentEffort response = api.getSegmentEffortById(id);
+    public void getUploadByIdTest() throws ApiException {
+        Long uploadId = null;
+        Upload response = api.getUploadById(uploadId);
 
         // TODO: test validations
     }

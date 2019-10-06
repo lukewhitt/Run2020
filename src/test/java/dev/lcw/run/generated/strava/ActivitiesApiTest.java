@@ -11,9 +11,10 @@
  */
 
 
-package dev.lcw.run.generated.strava.api;
+package dev.lcw.run.generated.strava;
 
 import dev.lcw.run.generated.strava.ApiException;
+import dev.lcw.run.generated.strava.api.ActivitiesApi;
 import dev.lcw.run.generated.strava.model.ActivityZone;
 import dev.lcw.run.generated.strava.model.Comment;
 import dev.lcw.run.generated.strava.model.DetailedActivity;

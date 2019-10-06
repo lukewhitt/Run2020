@@ -4,17 +4,17 @@ import dev.lcw.run.generated.strava.ApiClient;
 import dev.lcw.run.generated.strava.ApiException;
 import dev.lcw.run.generated.strava.api.AthletesApi;
 import dev.lcw.run.generated.strava.api.ClubsApi;
-import dev.lcw.run.generated.strava.model.SummaryClub;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
-import java.util.List;
 
 @ApplicationScoped
 public class StravaService {
 
     @ConfigProperty(name = "strava.accessToken")
-    private String defaultAccessToken;
+    String defaultAccessToken;
+
+    private static final int HP_RUNNERS_ID = 543805;
 
     private ApiClient apiClient;
 
@@ -27,28 +27,15 @@ public class StravaService {
         return apiClient;
     }
 
-    public String printAtheleteInfo() throws ApiException
+    public String printAthleteInfo() throws ApiException
     {
         AthletesApi athletesApi = new AthletesApi(getApiClient());
-
-        List<SummaryClub> clubs = athletesApi.getLoggedInAthlete().getClubs();
-
-        clubs.forEach(c -> {
-
-        });
-
-        if (clubs == null) {
-            return athletesApi.getLoggedInAthlete().toString();
-        } else {
-            return clubs.toString();
-        }
+        return athletesApi.getLoggedInAthlete().toString();
     }
 
     public String printClubInfo() throws ApiException
     {
         ClubsApi clubsApi = new ClubsApi(getApiClient());
-
-        return clubsApi.getClubActivitiesById(543805, 1, 15).toString();
-
+        return clubsApi.getClubById(HP_RUNNERS_ID).toString();
     }
 }

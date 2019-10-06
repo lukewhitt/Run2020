@@ -11,9 +11,10 @@
  */
 
 
-package dev.lcw.run.generated.strava.api;
+package dev.lcw.run.generated.strava;
 
 import dev.lcw.run.generated.strava.ApiException;
+import dev.lcw.run.generated.strava.api.SegmentsApi;
 import dev.lcw.run.generated.strava.model.DetailedSegment;
 import dev.lcw.run.generated.strava.model.ExplorerResponse;
 import dev.lcw.run.generated.strava.model.Fault;

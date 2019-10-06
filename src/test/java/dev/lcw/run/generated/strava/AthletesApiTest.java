@@ -11,11 +11,14 @@
  */
 
 
-package dev.lcw.run.generated.strava.api;
+package dev.lcw.run.generated.strava;
 
 import dev.lcw.run.generated.strava.ApiException;
+import dev.lcw.run.generated.strava.api.AthletesApi;
+import dev.lcw.run.generated.strava.model.ActivityStats;
+import dev.lcw.run.generated.strava.model.DetailedAthlete;
 import dev.lcw.run.generated.strava.model.Fault;
-import dev.lcw.run.generated.strava.model.StreamSet;
+import dev.lcw.run.generated.strava.model.Zones;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -25,80 +28,74 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for StreamsApi
+ * API tests for AthletesApi
  */
 @Ignore
-public class StreamsApiTest {
+public class AthletesApiTest {
 
-    private final StreamsApi api = new StreamsApi();
+    private final AthletesApi api = new AthletesApi();
 
     
     /**
-     * Get Activity Streams
+     * Get Authenticated Athlete
      *
-     * Returns the given activity&#39;s streams. Requires activity:read scope. Requires activity:read_all scope for Only Me activities.
+     * Returns the currently authenticated athlete. Tokens with profile:read_all scope will receive a detailed athlete representation; all others will receive a summary representation.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getActivityStreamsTest() throws ApiException {
-        Long id = null;
-        List<String> keys = null;
-        Boolean keyByType = null;
-        StreamSet response = api.getActivityStreams(id, keys, keyByType);
+    public void getLoggedInAthleteTest() throws ApiException {
+        DetailedAthlete response = api.getLoggedInAthlete();
 
         // TODO: test validations
     }
     
     /**
-     * Get Route Streams
+     * Get Zones
      *
-     * Returns the given route&#39;s streams. Requires read_all scope for private routes.
+     * Returns the the authenticated athlete&#39;s heart rate and power zones. Requires profile:read_all.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getRouteStreamsTest() throws ApiException {
-        Long id = null;
-        StreamSet response = api.getRouteStreams(id);
+    public void getLoggedInAthleteZonesTest() throws ApiException {
+        Zones response = api.getLoggedInAthleteZones();
 
         // TODO: test validations
     }
     
     /**
-     * Get Segment Effort Streams
+     * Get Athlete Stats
      *
-     * Returns a set of streams for a segment effort completed by the authenticated athlete. Requires read_all scope.
+     * Returns the activity stats of an athlete.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getSegmentEffortStreamsTest() throws ApiException {
-        Long id = null;
-        List<String> keys = null;
-        Boolean keyByType = null;
-        StreamSet response = api.getSegmentEffortStreams(id, keys, keyByType);
+    public void getStatsTest() throws ApiException {
+        Integer id = null;
+        Integer page = null;
+        Integer perPage = null;
+        ActivityStats response = api.getStats(id, page, perPage);
 
         // TODO: test validations
     }
     
     /**
-     * Get Segment Streams
+     * Update Athlete
      *
-     * Returns the given segment&#39;s streams. Requires read_all scope for private segments.
+     * Update the currently authenticated athlete. Requires profile:write scope.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getSegmentStreamsTest() throws ApiException {
-        Long id = null;
-        List<String> keys = null;
-        Boolean keyByType = null;
-        StreamSet response = api.getSegmentStreams(id, keys, keyByType);
+    public void updateLoggedInAthleteTest() throws ApiException {
+        Float weight = null;
+        DetailedAthlete response = api.updateLoggedInAthlete(weight);
 
         // TODO: test validations
     }

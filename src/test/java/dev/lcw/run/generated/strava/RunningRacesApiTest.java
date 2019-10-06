@@ -11,11 +11,12 @@
  */
 
 
-package dev.lcw.run.generated.strava.api;
+package dev.lcw.run.generated.strava;
 
 import dev.lcw.run.generated.strava.ApiException;
-import dev.lcw.run.generated.strava.model.DetailedGear;
+import dev.lcw.run.generated.strava.api.RunningRacesApi;
 import dev.lcw.run.generated.strava.model.Fault;
+import dev.lcw.run.generated.strava.model.RunningRace;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -25,26 +26,42 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for GearsApi
+ * API tests for RunningRacesApi
  */
 @Ignore
-public class GearsApiTest {
+public class RunningRacesApiTest {
 
-    private final GearsApi api = new GearsApi();
+    private final RunningRacesApi api = new RunningRacesApi();
 
     
     /**
-     * Get Equipment
+     * Get Running Race
      *
-     * Returns an equipment using its identifier.
+     * Returns a running race for a given identifier.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getGearByIdTest() throws ApiException {
-        String id = null;
-        DetailedGear response = api.getGearById(id);
+    public void getRunningRaceByIdTest() throws ApiException {
+        Integer id = null;
+        RunningRace response = api.getRunningRaceById(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Running Races
+     *
+     * Returns a list running races based on a set of search criteria.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getRunningRacesTest() throws ApiException {
+        Integer year = null;
+        List<RunningRace> response = api.getRunningRaces(year);
 
         // TODO: test validations
     }

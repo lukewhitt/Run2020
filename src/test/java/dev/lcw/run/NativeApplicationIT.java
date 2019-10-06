@@ -1,4 +1,4 @@
-package dev.lcw.2020;
+package dev.lcw.run;
 
 import io.quarkus.test.junit.SubstrateTest;
 

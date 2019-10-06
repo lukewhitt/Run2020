@@ -11,9 +11,10 @@
  */
 
 
-package dev.lcw.run.generated.strava.api;
+package dev.lcw.run.generated.strava;
 
 import dev.lcw.run.generated.strava.ApiException;
+import dev.lcw.run.generated.strava.api.RoutesApi;
 import dev.lcw.run.generated.strava.model.Fault;
 import dev.lcw.run.generated.strava.model.Route;
 import org.junit.Test;

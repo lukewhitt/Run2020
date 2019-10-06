@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 public class Application {
 
     @Inject
-    private StravaService stravaService;
+    StravaService stravaService;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
